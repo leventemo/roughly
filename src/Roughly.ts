@@ -5,7 +5,7 @@ import { Utils } from './Utils'
 export class Roughly {
   constructor(
     public qns: Question[] = roughlyQns,
-    public i: number = 0,
+    public index: number = 0,
     public scoreA: number = 0,
     public scoreB: number = 0,
     public answerA: number = 0,
@@ -24,13 +24,13 @@ export class Roughly {
   evaluateAnswers() {
 
     // calculate differences from correct answer
-    const diffA = Utils.calcDiff(this.answerA, this.qns[0].correctAnswer);
-    const diffB = Utils.calcDiff(this.answerB, this.qns[0].correctAnswer);
+    const diffA = Utils.calcDiff(this.answerA, this.qns[this.index].correctAnswer);
+    const diffB = Utils.calcDiff(this.answerB, this.qns[this.index].correctAnswer);
 
     // scoring
-    if (this.answerA === this.qns[0].correctAnswer) {
+    if (this.answerA === this.qns[this.index].correctAnswer) {
       this.scoreA = this.scoreA + (2 * diffB);
-    } else if (this.answerB === this.qns[0].correctAnswer) {
+    } else if (this.answerB === this.qns[this.index].correctAnswer) {
       this.scoreB = this.scoreB + (2 * diffA);
     } else if (diffA === diffB) {
       this.scoreA = this.scoreA + diffB;

@@ -65,13 +65,18 @@ window.onload = function () {
   startButton.addEventListener('click', (event) => {
     event.preventDefault();
 
+    displayNewQuestion();
+
+  });
+
+  function displayNewQuestion() {
     scoreA.textContent = JSON.stringify(quiz.scoreA);
     scoreB.textContent = JSON.stringify(quiz.scoreB);
 
-    question.textContent = quiz.qns[quiz.i].question;
-    answer.textContent = JSON.stringify(quiz.qns[quiz.i].correctAnswer);
+    question.textContent = quiz.qns[quiz.index].question;
+    answer.textContent = JSON.stringify(quiz.qns[quiz.index].correctAnswer);
     answer.classList.add('hidden');
-    link.textContent = quiz.qns[quiz.i].background;
+    link.textContent = quiz.qns[quiz.index].background;
     link.classList.add('hidden');
 
     if (quiz.starterPlayer === 'playerA') {
@@ -83,8 +88,7 @@ window.onload = function () {
 
     startButton.classList.add('hidden');
     checkButton.classList.remove('hidden');
-
-  });
+  }
 
   saveBtnA.addEventListener('click', (event) => {
     event.preventDefault();
@@ -154,7 +158,7 @@ window.onload = function () {
     scoreA.textContent = JSON.stringify(quiz.scoreA);
     scoreB.textContent = JSON.stringify(quiz.scoreB);
 
-    answer.textContent = JSON.stringify(quiz.qns[0].correctAnswer);
+    answer.textContent = JSON.stringify(quiz.qns[quiz.index].correctAnswer);
     answer.classList.remove('hidden');
 
     inputA.setAttribute('disabled', '');
@@ -162,27 +166,29 @@ window.onload = function () {
     checkButton.classList.add('hidden');
     nextButton.classList.remove('hidden');
 
-    link.textContent = quiz.qns[quiz.i].background;
+    link.textContent = quiz.qns[quiz.index].background;
 
   });
 
   nextButton.addEventListener('click', () => {
-    quiz.i = quiz.i + 1;
+    quiz.index = quiz.index + 1;
 
     // check if there's a new qn:
-    if (quiz.qns.length === quiz.i) {
+    if (quiz.qns.length === quiz.index) {
       // if there isn't, show scoreboard
       console.log('no more qns');
     } else {
       // if there is one, show that: update qn, hide answer
-      console.log(quiz.qns[quiz.i]);
+      quiz.toggleStarterPlayers();
+      displayNewQuestion();
     }
 
     // clear input fields
     inputA.value = '0';
     inputB.value = '0';
 
-    quiz.toggleStarterPlayers();
+    nextButton.classList.add('hidden');
+
     console.log(quiz.starterPlayer);
   });
 
