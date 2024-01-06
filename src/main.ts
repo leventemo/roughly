@@ -1,12 +1,13 @@
 import './style.css'
 import { Roughly } from './Roughly.ts'
+import { Utils } from './Utils.ts'
 
 window.onload = function () {
 
   const quiz = new Roughly();
 
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <h1>Roughly</h1>
+  <h1 id="header"><span id="qnNumber">${quiz.index}/${quiz.qns.length}</span>Roughly</h1>
   <div class="card">
     <div class="scoreboard">
       <div class="player">
@@ -43,7 +44,7 @@ window.onload = function () {
     </form>
   </div>
 `
-
+  const qnNumber = document.querySelector('#qnNumber') as HTMLElement;
   const scoreA = document.querySelector('#scoreA') as HTMLElement;
   const scoreB = document.querySelector('#scoreB') as HTMLElement;
   const msg = document.querySelector('#msg') as HTMLElement;
@@ -70,6 +71,7 @@ window.onload = function () {
   });
 
   function displayNewQuestion() {
+    qnNumber.textContent = `${quiz.index + 1} / ${quiz.qns.length}`;
     scoreA.textContent = JSON.stringify(quiz.scoreA);
     scoreB.textContent = JSON.stringify(quiz.scoreB);
 
@@ -95,7 +97,7 @@ window.onload = function () {
 
     // validation: can't be equal to the other input value
     if (inputA.value === inputB.value && quiz.starterPlayer === 'playerB') {
-      handleEqualValues(inputA);
+      Utils.handleEqualValues(inputA, msg);
     }
 
     // disable, enable inputs
@@ -122,7 +124,7 @@ window.onload = function () {
 
     // validation: can't be equal to the other input value
     if (inputA.value === inputB.value && quiz.starterPlayer === 'playerA') {
-      handleEqualValues(inputB);
+      Utils.handleEqualValues(inputB, msg);
     }
 
     // disable, enable inputs
@@ -175,7 +177,7 @@ window.onload = function () {
 
     // check if there's a new qn:
     if (quiz.qns.length === quiz.index) {
-      // if there isn't, show scoreboard
+      // if there isn't, show winner, then scoreboard on click of a new btn
       console.log('no more qns');
     } else {
       // if there is one, show that: update qn, hide answer
@@ -186,49 +188,13 @@ window.onload = function () {
     // clear input fields
     inputA.value = '0';
     inputB.value = '0';
-
     nextButton.classList.add('hidden');
 
-    console.log(quiz.starterPlayer);
   });
 
-  function handleEqualValues(inputToHandle: HTMLInputElement,) {
-    msg.classList.remove('invisible');
-    setTimeout(() => {
-      msg.classList.add('invisible');
-      inputToHandle.value = '0';
-      inputToHandle.removeAttribute('disabled');
-    }, 3000);
-  }
-
 }
-
-
-// todo: identical answers are not permitted
-// todo: nextBtn
-// todo: checkBtn
-// todo: toggleStarterPlayer
 
 //? displayScores() {}
 //? displayQuestion() {}
 //? checkAnswers() {}
 
-// on load: display initial page:
-// scores (0)
-// qn placeholder: icon
-// answer placeholder: icon
-// link placeholder: icon
-// input fields disabled + start btn
-
-// on click of start btn:
-// scores
-// qn in question-section
-// input fields enabled + check btn
-
-// on click of check btn
-// scores updated
-// qn + correct answer + scoring logic
-// input fields disabled + next btn
-
-// on click of send btn last time?
-// list of all qns + correct answers + links

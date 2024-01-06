@@ -9,6 +9,15 @@ export class Utils {
     return diff;
   }
 
+  public static handleEqualValues(inputToHandle: HTMLInputElement, messageElement: HTMLElement) {
+    messageElement.classList.remove('invisible');
+    setTimeout(() => {
+      messageElement.classList.add('invisible');
+      inputToHandle.value = '0';
+      inputToHandle.removeAttribute('disabled');
+    }, 3000);
+  }
+
   // want to use it?
   public static selectWinner(guessA: number, guessB: number, correct: number) {
     let diffA: number = 0;

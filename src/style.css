@@ -35,6 +35,11 @@ h1 {
   font-size: 1.3em;
 }
 
+#header {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;

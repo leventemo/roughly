@@ -12,7 +12,7 @@ export const roughlyQns: Question[] = [
     background: 'https://www.huffpost.com/entry/americans-believe-in-creationism_n_1571127'
   },
   {
-    question: 'Artists had to draw more than _____ millions spots for the Disney animated film One Hundred and One Dalmatians.',
+    question: 'Artists had to draw more than _____ million spots for the Disney animated film One Hundred and One Dalmatians.',
     correctAnswer: 6,
     background: 'https://d23.com/painting-of-spots-huge-job-in-producing-disneys-dalmatians/'
   }
