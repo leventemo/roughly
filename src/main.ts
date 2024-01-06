@@ -19,7 +19,7 @@ window.onload = function () {
         <div id="scoreB">${quiz.scoreB}</div>
       </div>
     </div>
-    <div id="msg" class="invisible">Idential answers are not allowed. Try a different one.</div>
+    <div id="msg" class="invisible"></div>
     <div class="question">
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" viewBox="0 -2 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
@@ -35,8 +35,8 @@ window.onload = function () {
     </div>
 
     <form id="roughly-form" action="#">
-      <label for="inputA">guess A <input type="number" id="inputA" name="inputA" value="0" disabled><button id="save-button-A" disabled>Save</button></label>
-      <label for="inputB">guess B <input type="number" id="inputB" name="inputB" value="0" disabled><button id="save-button-B" disabled>Save</button></label>
+      <label for="inputA">guess A <input type="number" id="inputA" name="inputA" disabled required><button id="save-button-A" disabled>Save</button></label>
+      <label for="inputB">guess B <input type="number" id="inputB" name="inputB" disabled required><button id="save-button-B" disabled>Save</button></label>
       <button type="button" id="startButton">Start</button>
       <button type="button" id="checkButton" class="hidden" disabled>Check</button>
       <button type="button" id="nextButton" class="hidden">Next</button>
@@ -97,7 +97,12 @@ window.onload = function () {
 
     // validation: can't be equal to the other input value
     if (inputA.value === inputB.value && quiz.starterPlayer === 'playerB') {
-      Utils.handleEqualValues(inputA, msg);
+      Utils.handleEqualValues(inputA, msg, quiz.msgNoEquals);
+    }
+
+    // validation for Firefox & Safari: can't use comma for floats or non-numeric characters
+    if (inputA.value === '') {
+      Utils.handleCommaForFloats(inputA, msg, quiz.msgNoCommas);
     }
 
     // disable, enable inputs
@@ -112,7 +117,7 @@ window.onload = function () {
     }
 
     saveBtnA.setAttribute('disabled', '');
-
+    console.log(inputA.value);
   });
 
   inputA.addEventListener('input', () => {
@@ -124,7 +129,12 @@ window.onload = function () {
 
     // validation: can't be equal to the other input value
     if (inputA.value === inputB.value && quiz.starterPlayer === 'playerA') {
-      Utils.handleEqualValues(inputB, msg);
+      Utils.handleEqualValues(inputB, msg, quiz.msgNoEquals);
+    }
+
+    // validation for Firefox & Safari: can't use comma for floats or non-numeric characters
+    if (inputB.value === '') {
+      Utils.handleCommaForFloats(inputB, msg, quiz.msgNoCommas);
     }
 
     // disable, enable inputs
@@ -139,6 +149,7 @@ window.onload = function () {
     }
 
     saveBtnB.setAttribute('disabled', '');
+    console.log(inputB.value);
 
   });
 
@@ -186,8 +197,8 @@ window.onload = function () {
     }
 
     // clear input fields
-    inputA.value = '0';
-    inputB.value = '0';
+    inputA.value = '';
+    inputB.value = '';
     nextButton.classList.add('hidden');
 
   });

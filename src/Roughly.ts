@@ -11,6 +11,8 @@ export class Roughly {
     public answerA: number = 0,
     public answerB: number = 0,
     public starterPlayer: StarterPlayer = 'playerA',
+    public msgNoEquals = 'Idential answers are not allowed. Try a different one.',
+    public msgNoCommas = 'Only numbers and decimals points are accepted.'
   ) { }
 
   toggleStarterPlayers(): void {

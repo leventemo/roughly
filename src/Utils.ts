@@ -9,11 +9,22 @@ export class Utils {
     return diff;
   }
 
-  public static handleEqualValues(inputToHandle: HTMLInputElement, messageElement: HTMLElement) {
+  public static handleEqualValues(inputToHandle: HTMLInputElement, messageElement: HTMLElement, msgNoEquals: string) {
     messageElement.classList.remove('invisible');
+    messageElement.textContent = msgNoEquals;
     setTimeout(() => {
       messageElement.classList.add('invisible');
-      inputToHandle.value = '0';
+      inputToHandle.value = '';
+      inputToHandle.removeAttribute('disabled');
+    }, 3000);
+  }
+
+  public static handleCommaForFloats(inputToHandle: HTMLInputElement, messageElement: HTMLElement, msgNoCommas: string) {
+    messageElement.classList.remove('invisible');
+    messageElement.textContent = msgNoCommas;
+    setTimeout(() => {
+      messageElement.classList.add('invisible');
+      inputToHandle.value = '';
       inputToHandle.removeAttribute('disabled');
     }, 3000);
   }
