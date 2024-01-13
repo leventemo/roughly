@@ -103,12 +103,12 @@ window.onload = function () {
     event.preventDefault();
 
     // validation for Firefox & Safari: can't use non-numeric characters comma for floats
-    if (Validators.validateForNonNumeric(inputA.value)) {
+    if (Validators.isInvalidForNonNumeric(inputA.value)) {
       Utils.handleNonNumeric(inputA, msgContainer, quiz.msgNoCommas);
     }
 
     // validation: can't be equal to the other input value
-    if (Validators.validateForEqualValues([inputA.value, inputB.value], [quiz.starterPlayer, 'playerB'])) {
+    if (Validators.isInvalidForEqualValues([inputA.value, inputB.value], [quiz.starterPlayer, 'playerB'])) {
       Utils.handleEqualValues(inputA, msgContainer, quiz.msgNoEquals);
     }
 
