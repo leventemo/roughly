@@ -10,8 +10,8 @@ export class Utils {
   }
 
   public static handleEqualValues(inputToHandle: HTMLInputElement, messageElement: HTMLElement, msgNoEquals: string) {
-    messageElement.classList.remove('invisible');
     messageElement.textContent = msgNoEquals;
+    messageElement.classList.remove('invisible');
     setTimeout(() => {
       messageElement.classList.add('invisible');
       inputToHandle.value = '';
@@ -20,8 +20,8 @@ export class Utils {
   }
 
   public static handleCommaForFloats(inputToHandle: HTMLInputElement, messageElement: HTMLElement, msgNoCommas: string) {
-    messageElement.classList.remove('invisible');
     messageElement.textContent = msgNoCommas;
+    messageElement.classList.remove('invisible');
     setTimeout(() => {
       messageElement.classList.add('invisible');
       inputToHandle.value = '';

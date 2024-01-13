@@ -11,8 +11,9 @@ export class Roughly {
     public answerA: number = 0,
     public answerB: number = 0,
     public starterPlayer: StarterPlayer = 'playerA',
+    public winner = '',
     public msgNoEquals = 'Idential answers are not allowed. Try a different one.',
-    public msgNoCommas = 'Only numbers and decimals points are accepted.'
+    public msgNoCommas = 'Only numbers and decimals points are accepted.',
   ) { }
 
   toggleStarterPlayers(): void {
@@ -23,12 +24,10 @@ export class Roughly {
     }
   }
 
-  evaluateAnswers() {
-
+  evaluateAnswers(): void {
     // calculate differences from correct answer
     const diffA = Utils.calcDiff(this.answerA, this.qns[this.index].correctAnswer);
     const diffB = Utils.calcDiff(this.answerB, this.qns[this.index].correctAnswer);
-
     // scoring
     if (this.answerA === this.qns[this.index].correctAnswer) {
       this.scoreA = this.scoreA + (2 * diffB);
@@ -42,7 +41,18 @@ export class Roughly {
     } else if (diffA < diffB) {
       this.scoreA = this.scoreA + diffB;
     }
+  }
 
+  selectWinner(): string {
+    let winner = '';
+    if (this.scoreA === this.scoreB) {
+      winner = 'It\'s a draw.';
+    } else if (this.scoreA > this.scoreB) {
+      winner = 'A wins.';
+    } else if (this.scoreA < this.scoreB) {
+      winner = 'B wins.';
+    }
+    return winner;
   }
 }
 

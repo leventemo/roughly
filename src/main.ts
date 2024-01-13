@@ -47,7 +47,7 @@ window.onload = function () {
   const qnNumber = document.querySelector('#qnNumber') as HTMLElement;
   const scoreA = document.querySelector('#scoreA') as HTMLElement;
   const scoreB = document.querySelector('#scoreB') as HTMLElement;
-  const msg = document.querySelector('#msg') as HTMLElement;
+  const msgContainer = document.querySelector('#msg') as HTMLElement;
 
   const question = document.querySelector('#question') as HTMLElement;
   const answer = document.querySelector('#answer') as HTMLElement;
@@ -62,6 +62,7 @@ window.onload = function () {
   const startButton = document.querySelector('#startButton') as HTMLButtonElement;
   const checkButton = document.querySelector('#checkButton') as HTMLButtonElement;
   const nextButton = document.querySelector('#nextButton') as HTMLButtonElement;
+  // const regexfloatingPointNumbers = /[+-] ? ([0 - 9] * [.]) ? [0 - 9] +/;
 
   startButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -92,17 +93,23 @@ window.onload = function () {
     checkButton.classList.remove('hidden');
   }
 
+  function displayWinner() {
+    const msg: string = quiz.selectWinner();
+    console.log(msg);
+  }
+
   saveBtnA.addEventListener('click', (event) => {
     event.preventDefault();
 
     // validation: can't be equal to the other input value
     if (inputA.value === inputB.value && quiz.starterPlayer === 'playerB') {
-      Utils.handleEqualValues(inputA, msg, quiz.msgNoEquals);
+      Utils.handleEqualValues(inputA, msgContainer, quiz.msgNoEquals);
     }
 
     // validation for Firefox & Safari: can't use comma for floats or non-numeric characters
-    if (inputA.value === '') {
-      Utils.handleCommaForFloats(inputA, msg, quiz.msgNoCommas);
+    if (!/[-+]?[0-9]*\.?[0-9]+/.test(inputA.value)) {
+      console.log('commmma');
+      Utils.handleCommaForFloats(inputA, msgContainer, quiz.msgNoCommas);
     }
 
     // disable, enable inputs
@@ -117,7 +124,7 @@ window.onload = function () {
     }
 
     saveBtnA.setAttribute('disabled', '');
-    console.log(inputA.value);
+
   });
 
   inputA.addEventListener('input', () => {
@@ -129,12 +136,12 @@ window.onload = function () {
 
     // validation: can't be equal to the other input value
     if (inputA.value === inputB.value && quiz.starterPlayer === 'playerA') {
-      Utils.handleEqualValues(inputB, msg, quiz.msgNoEquals);
+      Utils.handleEqualValues(inputB, msgContainer, quiz.msgNoEquals);
     }
 
     // validation for Firefox & Safari: can't use comma for floats or non-numeric characters
-    if (inputB.value === '') {
-      Utils.handleCommaForFloats(inputB, msg, quiz.msgNoCommas);
+    if (!/[-+]?[0-9]*\.?[0-9]+/.test(inputB.value)) {
+      Utils.handleCommaForFloats(inputB, msgContainer, quiz.msgNoCommas);
     }
 
     // disable, enable inputs
@@ -149,7 +156,6 @@ window.onload = function () {
     }
 
     saveBtnB.setAttribute('disabled', '');
-    console.log(inputB.value);
 
   });
 
@@ -189,7 +195,7 @@ window.onload = function () {
     // check if there's a new qn:
     if (quiz.qns.length === quiz.index) {
       // if there isn't, show winner, then scoreboard on click of a new btn
-      console.log('no more qns');
+      displayWinner();
     } else {
       // if there is one, show that: update qn, hide answer
       quiz.toggleStarterPlayers();
@@ -201,7 +207,13 @@ window.onload = function () {
     inputB.value = '';
     nextButton.classList.add('hidden');
 
+    const strringo = 'abcdefghijk';
+
+    console.log(strringo.substr(0, 3));
+    console.log(strringo.substring(0, 3));
+
   });
+
 
 }
 
