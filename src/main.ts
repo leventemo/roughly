@@ -1,6 +1,7 @@
-import './style.css'
-import { Roughly } from './Roughly.ts'
-import { Utils } from './Utils.ts'
+import './style.css';
+import { Roughly } from './Roughly.ts';
+import { Utils } from './Utils.ts';
+import { Validators } from './Validators.ts';
 
 window.onload = function () {
 
@@ -101,15 +102,14 @@ window.onload = function () {
   saveBtnA.addEventListener('click', (event) => {
     event.preventDefault();
 
-    // validation: can't be equal to the other input value
-    if (inputA.value === inputB.value && quiz.starterPlayer === 'playerB') {
-      Utils.handleEqualValues(inputA, msgContainer, quiz.msgNoEquals);
+    // validation for Firefox & Safari: can't use non-numeric characters comma for floats
+    if (Validators.validateForNonNumeric(inputA.value)) {
+      Utils.handleNonNumeric(inputA, msgContainer, quiz.msgNoCommas);
     }
 
-    // validation for Firefox & Safari: can't use comma for floats or non-numeric characters
-    if (!/[-+]?[0-9]*\.?[0-9]+/.test(inputA.value)) {
-      console.log('commmma');
-      Utils.handleCommaForFloats(inputA, msgContainer, quiz.msgNoCommas);
+    // validation: can't be equal to the other input value
+    if (Validators.validateForEqualValues([inputA.value, inputB.value], [quiz.starterPlayer, 'playerB'])) {
+      Utils.handleEqualValues(inputA, msgContainer, quiz.msgNoEquals);
     }
 
     // disable, enable inputs
@@ -134,14 +134,14 @@ window.onload = function () {
   saveBtnB.addEventListener('click', (event) => {
     event.preventDefault();
 
+    // validation for Firefox & Safari: can't use non-numeric characters comma for floats
+    if (!/[-+]?[0-9]*\.?[0-9]+/.test(inputB.value)) {
+      Utils.handleNonNumeric(inputB, msgContainer, quiz.msgNoCommas);
+    }
+
     // validation: can't be equal to the other input value
     if (inputA.value === inputB.value && quiz.starterPlayer === 'playerA') {
       Utils.handleEqualValues(inputB, msgContainer, quiz.msgNoEquals);
-    }
-
-    // validation for Firefox & Safari: can't use comma for floats or non-numeric characters
-    if (!/[-+]?[0-9]*\.?[0-9]+/.test(inputB.value)) {
-      Utils.handleCommaForFloats(inputB, msgContainer, quiz.msgNoCommas);
     }
 
     // disable, enable inputs
@@ -207,13 +207,7 @@ window.onload = function () {
     inputB.value = '';
     nextButton.classList.add('hidden');
 
-    const strringo = 'abcdefghijk';
-
-    console.log(strringo.substr(0, 3));
-    console.log(strringo.substring(0, 3));
-
   });
-
 
 }
 

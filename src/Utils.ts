@@ -19,7 +19,7 @@ export class Utils {
     }, 3000);
   }
 
-  public static handleCommaForFloats(inputToHandle: HTMLInputElement, messageElement: HTMLElement, msgNoCommas: string) {
+  public static handleNonNumeric(inputToHandle: HTMLInputElement, messageElement: HTMLElement, msgNoCommas: string) {
     messageElement.textContent = msgNoCommas;
     messageElement.classList.remove('invisible');
     setTimeout(() => {
