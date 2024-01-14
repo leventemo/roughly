@@ -1,5 +1,6 @@
 import './style.css';
 import { Roughly } from './Roughly.ts';
+import { Render } from './Render.ts';
 import { Utils } from './Utils.ts';
 import { Validators } from './Validators.ts';
 
@@ -63,7 +64,6 @@ window.onload = function () {
   const startButton = document.querySelector('#startButton') as HTMLButtonElement;
   const checkButton = document.querySelector('#checkButton') as HTMLButtonElement;
   const nextButton = document.querySelector('#nextButton') as HTMLButtonElement;
-  // const regexfloatingPointNumbers = /[+-] ? ([0 - 9] * [.]) ? [0 - 9] +/;
 
   startButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -83,15 +83,8 @@ window.onload = function () {
     link.textContent = quiz.qns[quiz.index].background;
     link.classList.add('hidden');
 
-    if (quiz.starterPlayer === 'playerA') {
-      inputA.removeAttribute('disabled');
-      // saveBtnA.removeAttribute('disabled');
-    } else {
-      inputB.removeAttribute('disabled');
-    }
+    Render.formWhenNewQuestion(quiz.starterPlayer, inputA, inputB, startButton, checkButton);
 
-    startButton.classList.add('hidden');
-    checkButton.classList.remove('hidden');
   }
 
   function displayWinner() {
@@ -104,14 +97,16 @@ window.onload = function () {
 
     // validation for Firefox & Safari: can't use non-numeric characters comma for floats
     if (Validators.isInvalidForNonNumeric(inputA.value)) {
-      Utils.handleNonNumeric(inputA, msgContainer, quiz.msgNumericOnly, quiz.delay);
+      Render.messageForNonNumeric(inputA, msgContainer, quiz.msgNumericOnly, quiz.delay);
+      Utils.sleep(quiz.delay).then(() => {
+        // todo: renderFormForNonNumeric()
+      });
     }
-
-    Utils.sleep(quiz.delay).then(() => console.log('Render'));
 
     // validation: can't be equal to the other input value
     if (Validators.isInvalidForEqualValues([inputA.value, inputB.value], [quiz.starterPlayer, 'playerB'])) {
-      Utils.handleEqualValues(inputA, msgContainer, quiz.msgNoEquals);
+      Render.messageForEqualValues(inputA, msgContainer, quiz.msgNoEquals);
+      // todo: renderFormForEqualValues()
     }
 
     // disable, enable inputs
@@ -138,14 +133,16 @@ window.onload = function () {
 
     // validation for Firefox & Safari: can't use non-numeric characters comma for floats
     if (Validators.isInvalidForNonNumeric(inputB.value)) {
-      Utils.handleNonNumeric(inputB, msgContainer, quiz.msgNumericOnly, quiz.delay);
+      Render.messageForNonNumeric(inputB, msgContainer, quiz.msgNumericOnly, quiz.delay);
+      Utils.sleep(quiz.delay).then(() => {
+        // todo: renderFormForNonNumeric()
+      });
     }
-
-    Utils.sleep(quiz.delay).then(() => console.log('Render'));
 
     // validation: can't be equal to the other input value
     if (Validators.isInvalidForEqualValues([inputB.value, inputA.value], [quiz.starterPlayer, 'playerA'])) {
-      Utils.handleEqualValues(inputB, msgContainer, quiz.msgNoEquals);
+      Render.messageForEqualValues(inputB, msgContainer, quiz.msgNoEquals);
+      // todo: renderFormForEqualValues()
     }
 
     // disable, enable inputs
