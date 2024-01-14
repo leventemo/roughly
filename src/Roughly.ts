@@ -13,7 +13,8 @@ export class Roughly {
     public starterPlayer: StarterPlayer = 'playerA',
     public winner = '',
     public msgNoEquals = 'Idential answers are not allowed. Try a different one.',
-    public msgNoCommas = 'Only numbers and decimals points are accepted.',
+    public msgNumericOnly = 'Only numbers and decimals points are accepted.',
+    public delay: number = 3000
   ) { }
 
   toggleStarterPlayers(): void {

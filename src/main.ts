@@ -104,8 +104,10 @@ window.onload = function () {
 
     // validation for Firefox & Safari: can't use non-numeric characters comma for floats
     if (Validators.isInvalidForNonNumeric(inputA.value)) {
-      Utils.handleNonNumeric(inputA, msgContainer, quiz.msgNoCommas);
+      Utils.handleNonNumeric(inputA, msgContainer, quiz.msgNumericOnly, quiz.delay);
     }
+
+    Utils.sleep(quiz.delay).then(() => console.log('Render'));
 
     // validation: can't be equal to the other input value
     if (Validators.isInvalidForEqualValues([inputA.value, inputB.value], [quiz.starterPlayer, 'playerB'])) {
@@ -135,12 +137,14 @@ window.onload = function () {
     event.preventDefault();
 
     // validation for Firefox & Safari: can't use non-numeric characters comma for floats
-    if (!/[-+]?[0-9]*\.?[0-9]+/.test(inputB.value)) {
-      Utils.handleNonNumeric(inputB, msgContainer, quiz.msgNoCommas);
+    if (Validators.isInvalidForNonNumeric(inputB.value)) {
+      Utils.handleNonNumeric(inputB, msgContainer, quiz.msgNumericOnly, quiz.delay);
     }
 
+    Utils.sleep(quiz.delay).then(() => console.log('Render'));
+
     // validation: can't be equal to the other input value
-    if (inputA.value === inputB.value && quiz.starterPlayer === 'playerA') {
+    if (Validators.isInvalidForEqualValues([inputB.value, inputA.value], [quiz.starterPlayer, 'playerA'])) {
       Utils.handleEqualValues(inputB, msgContainer, quiz.msgNoEquals);
     }
 

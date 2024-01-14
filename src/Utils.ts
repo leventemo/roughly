@@ -19,14 +19,18 @@ export class Utils {
     }, 3000);
   }
 
-  public static handleNonNumeric(inputToHandle: HTMLInputElement, messageElement: HTMLElement, msgNoCommas: string) {
+  public static handleNonNumeric(inputToHandle: HTMLInputElement, messageElement: HTMLElement, msgNoCommas: string, delay: number) {
     messageElement.textContent = msgNoCommas;
     messageElement.classList.remove('invisible');
     setTimeout(() => {
       messageElement.classList.add('invisible');
       inputToHandle.value = '';
       inputToHandle.removeAttribute('disabled');
-    }, 3000);
+    }, delay);
+  }
+
+  public static sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   // want to use it?
