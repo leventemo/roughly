@@ -99,14 +99,15 @@ window.onload = function () {
     if (Validators.isInvalidForNonNumeric(inputA.value)) {
       Render.messageForNonNumeric(inputA, msgContainer, quiz.msgNumericOnly, quiz.delay);
       Utils.sleep(quiz.delay).then(() => {
-        // todo: renderFormForNonNumeric()
+        // todo: renderFormForNonNumericInInputA()
+        console.log('invalid NonNumeric in inputA');
       });
     }
 
     // validation: can't be equal to the other input value
     if (Validators.isInvalidForEqualValues([inputA.value, inputB.value], [quiz.starterPlayer, 'playerB'])) {
       Render.messageForEqualValues(inputA, msgContainer, quiz.msgNoEquals);
-      // todo: renderFormForEqualValues()
+      Render.formForEqualValueInInputA(quiz.starterPlayer, inputA, inputB, checkButton, saveBtnA);
     }
 
     // disable, enable inputs
@@ -135,14 +136,15 @@ window.onload = function () {
     if (Validators.isInvalidForNonNumeric(inputB.value)) {
       Render.messageForNonNumeric(inputB, msgContainer, quiz.msgNumericOnly, quiz.delay);
       Utils.sleep(quiz.delay).then(() => {
-        // todo: renderFormForNonNumeric()
+        // todo: renderFormForNonNumericInInputB()
+        console.log('invalid NonNumeric in inputB');
       });
     }
 
     // validation: can't be equal to the other input value
     if (Validators.isInvalidForEqualValues([inputB.value, inputA.value], [quiz.starterPlayer, 'playerA'])) {
       Render.messageForEqualValues(inputB, msgContainer, quiz.msgNoEquals);
-      // todo: renderFormForEqualValues()
+      Render.formForEqualValueInInputB(quiz.starterPlayer, inputB, inputA, checkButton, saveBtnB);
     }
 
     // disable, enable inputs

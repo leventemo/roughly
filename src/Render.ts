@@ -31,4 +31,36 @@ export class Render {
       inputToHandle.removeAttribute('disabled');
     }, delay);
   }
+
+  public static formForEqualValueInInputA(starterPlayer: string, inputA: HTMLInputElement, inputB: HTMLInputElement, checkBtn: HTMLButtonElement, saveBtnA: HTMLButtonElement) {
+    // disable, enable inputs
+    if (starterPlayer === 'playerA') {
+      inputA.setAttribute('disabled', '');
+      inputB.removeAttribute('disabled');
+    }
+
+    if (starterPlayer === 'playerB') {
+      inputA.setAttribute('disabled', '');
+      checkBtn.removeAttribute('disabled');
+    }
+
+    saveBtnA.setAttribute('disabled', '');
+
+  }
+
+  public static formForEqualValueInInputB(starterPlayer: string, inputB: HTMLInputElement, inputA: HTMLInputElement, checkBtn: HTMLButtonElement, saveBtnB: HTMLButtonElement) {
+    // disable, enable inputs
+    if (starterPlayer === 'playerB') {
+      inputB.setAttribute('disabled', '');
+      inputA.removeAttribute('disabled');
+    }
+
+    if (starterPlayer === 'playerA') {
+      inputB.setAttribute('disabled', '');
+      checkBtn.removeAttribute('disabled');
+    }
+
+    saveBtnB.setAttribute('disabled', '');
+
+  }
 }
