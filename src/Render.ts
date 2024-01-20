@@ -15,7 +15,7 @@ export class Render {
     scoreContainerB.textContent = JSON.stringify(scoreB);
   }
 
-  public static questionWhenNewQuestion(questionContainer: HTMLElement, answerContainer: HTMLElement, linkContainer: HTMLElement, quizQns: Question[], quizIndex: number) {
+  public static contentBoxWhenNewQuestion(questionContainer: HTMLElement, answerContainer: HTMLElement, linkContainer: HTMLElement, quizQns: Question[], quizIndex: number) {
     questionContainer.textContent = quizQns[quizIndex].question;
     answerContainer.textContent = JSON.stringify(quizQns[quizIndex].correctAnswer);
     answerContainer.classList.add('hidden');
@@ -32,6 +32,7 @@ export class Render {
   public static formWhenCheckingAnswer(inputA: HTMLInputElement, inputB: HTMLInputElement, checkBtn: HTMLButtonElement, nextBtn: HTMLButtonElement) {
     inputA.setAttribute('disabled', '');
     inputB.setAttribute('disabled', '');
+    checkBtn.setAttribute('disabled', '');
     checkBtn.classList.add('hidden');
     nextBtn.classList.remove('hidden');
   }
@@ -44,8 +45,8 @@ export class Render {
     }
 
     startBtn.classList.add('hidden');
-    checkBtn.classList.remove('hidden');
     checkBtn.setAttribute('disabled', '');
+    checkBtn.classList.remove('hidden');
   }
 
   public static message(messageElement: HTMLElement, message: string): void {
@@ -65,7 +66,7 @@ export class Render {
     }, quiz.delay);
   }
 
-  public static formForEqualValueInInputA(starterPlayer: string, inputA: HTMLInputElement, inputB: HTMLInputElement, checkBtn: HTMLButtonElement, saveBtnA: HTMLButtonElement): void {
+  public static formForEqualValueInInputA(starterPlayer: string, inputA: HTMLInputElement, inputB: HTMLInputElement, saveBtnA: HTMLButtonElement): void {
     inputA.setAttribute('disabled', '');
     saveBtnA.setAttribute('disabled', '');
 
@@ -82,10 +83,9 @@ export class Render {
         inputA.removeAttribute('disabled');
       }, quiz.delay);
     }
-    checkBtn.removeAttribute('disabled');
   }
 
-  public static formForEqualValueInInputB(starterPlayer: string, inputB: HTMLInputElement, inputA: HTMLInputElement, checkBtn: HTMLButtonElement, saveBtnB: HTMLButtonElement): void {
+  public static formForEqualValueInInputB(starterPlayer: string, inputB: HTMLInputElement, inputA: HTMLInputElement, saveBtnB: HTMLButtonElement): void {
     inputB.setAttribute('disabled', '');
     saveBtnB.setAttribute('disabled', '');
 
@@ -102,29 +102,32 @@ export class Render {
         inputB.removeAttribute('disabled');
       }, quiz.delay);
     }
-    checkBtn.removeAttribute('disabled');
   }
 
-  public static formForValidFlowOnSaveBtnA(starterPlayer: string, inputA: HTMLInputElement, inputB: HTMLInputElement, checkButton: HTMLButtonElement, saveBtnA: HTMLButtonElement) {
+  public static formForValidFlowOnSaveBtnA(starterPlayer: string, inputA: HTMLInputElement, inputB: HTMLInputElement, checkBtn: HTMLButtonElement, saveBtnA: HTMLButtonElement) {
+    // checkBtn.setAttribute('disabled', '');
+
     if (starterPlayer === 'playerA') {
       inputB.removeAttribute('disabled');
     }
 
-    if (quiz.starterPlayer === 'playerB') {
-      checkButton.removeAttribute('disabled');
+    if (starterPlayer === 'playerB') {
+      checkBtn.removeAttribute('disabled');
     }
 
     inputA.setAttribute('disabled', '');
     saveBtnA.setAttribute('disabled', '');
   }
 
-  public static formForValidFlowOnSaveBtnB(starterPlayer: string, inputB: HTMLInputElement, inputA: HTMLInputElement, checkButton: HTMLButtonElement, saveBtnB: HTMLButtonElement) {
+  public static formForValidFlowOnSaveBtnB(starterPlayer: string, inputB: HTMLInputElement, inputA: HTMLInputElement, checkBtn: HTMLButtonElement, saveBtnB: HTMLButtonElement) {
+    // checkBtn.setAttribute('disabled', '');
+
     if (starterPlayer === 'playerB') {
       inputA.removeAttribute('disabled');
     }
 
-    if (quiz.starterPlayer === 'playerA') {
-      checkButton.removeAttribute('disabled');
+    if (starterPlayer === 'playerA') {
+      checkBtn.removeAttribute('disabled');
     }
 
     inputB.setAttribute('disabled', '');

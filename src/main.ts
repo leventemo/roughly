@@ -39,7 +39,7 @@ window.onload = function () {
       <label for="inputA">guess A <input type="number" id="inputA" name="inputA" disabled required><button id="save-button-A" disabled>Save</button></label>
       <label for="inputB">guess B <input type="number" id="inputB" name="inputB" disabled required><button id="save-button-B" disabled>Save</button></label>
       <button type="button" id="startButton">Start</button>
-      <button type="button" id="checkButton" class="hidden" disabled>Check</button>
+      <button type="button" id="checkButton" class="hidden">Check</button>
       <button type="button" id="nextButton" class="hidden">Next</button>
       <button type="button" id="overviewButton" class="hidden">Next</button>
     </form>
@@ -72,7 +72,7 @@ window.onload = function () {
   function displayNewQuestion() {
     Render.qnCounter(qnNumber, quiz.index, quiz.qns.length);
     Render.scores(scoreContainerA, scoreContainerB, quiz.scoreA, quiz.scoreB);
-    Render.questionWhenNewQuestion(questionContainer, answerContainer, linkContainer, quiz.qns, quiz.index);
+    Render.contentBoxWhenNewQuestion(questionContainer, answerContainer, linkContainer, quiz.qns, quiz.index);
     Render.formWhenNewQuestion(quiz.starterPlayer, inputA, inputB, startButton, checkButton);
   }
 
@@ -92,7 +92,7 @@ window.onload = function () {
     // validation: can't be equal to the other input value
     if (!Validators.isValidForEqualValues([inputA.value, inputB.value], [quiz.starterPlayer, 'playerB'])) {
       Render.message(msgContainer, quiz.msgNoEquals);
-      Render.formForEqualValueInInputA(quiz.starterPlayer, inputA, inputB, checkButton, saveBtnA);
+      Render.formForEqualValueInInputA(quiz.starterPlayer, inputA, inputB, checkButton);
       return;
     }
     // render form when inputs are valid
@@ -114,7 +114,7 @@ window.onload = function () {
     // validation: can't be equal to the other input value
     if (!Validators.isValidForEqualValues([inputB.value, inputA.value], [quiz.starterPlayer, 'playerA'])) {
       Render.message(msgContainer, quiz.msgNoEquals);
-      Render.formForEqualValueInInputB(quiz.starterPlayer, inputB, inputA, checkButton, saveBtnB);
+      Render.formForEqualValueInInputB(quiz.starterPlayer, inputB, inputA, checkButton);
       return;
     }
     // render form when inputs are valid
@@ -149,22 +149,19 @@ window.onload = function () {
     if (quiz.qns.length === quiz.index) {
       // if there isn't, show winner, then scoreboard on click of a new btn
       displayWinner();
+      return;
     } else {
+      // clear input fields
+      inputA.value = '';
+      inputB.value = '';
+      nextButton.classList.add('hidden');
+
       // if there is one, show that: update qn, hide answer
       quiz.toggleStarterPlayers();
       displayNewQuestion();
     }
 
-    // clear input fields
-    inputA.value = '';
-    inputB.value = '';
-    nextButton.classList.add('hidden');
-
   });
 
 }
-
-//? displayScores() {}
-//? displayQuestion() {}
-//? checkAnswers() {}
 
