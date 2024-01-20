@@ -53,7 +53,7 @@ h1 {
 }
 
 form,
-.question {
+.content-box {
   display: flex;
   flex-direction: column;
   text-align: left;

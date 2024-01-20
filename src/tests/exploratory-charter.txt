@@ -1,0 +1,16 @@
+check invalid for non-numeric flow
+- on inputA
+- on inputB
+
+check invalid for equal values flow
+- on inputA
+-- when starterPlayer = playerA
+-- when starterPlayer = playerB
+- on inputB
+-- when starterPlayer = playerA
+-- when starterPlayer = playerB
+
+check valid flow
+
+BUGS
+checkBtn should only be enabled when BOTH inputs are done!

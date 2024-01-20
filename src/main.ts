@@ -1,7 +1,6 @@
 import './style.css';
 import { Roughly } from './Roughly.ts';
 import { Render } from './Render.ts';
-import { Utils } from './Utils.ts';
 import { Validators } from './Validators.ts';
 
 window.onload = function () {
@@ -22,7 +21,7 @@ window.onload = function () {
       </div>
     </div>
     <div id="msg" class="invisible"></div>
-    <div class="question">
+    <div class="content-box">
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" viewBox="0 -2 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
         </svg><span id='question'> question</span>
@@ -47,13 +46,13 @@ window.onload = function () {
   </div>
 `
   const qnNumber = document.querySelector('#qnNumber') as HTMLElement;
-  const scoreA = document.querySelector('#scoreA') as HTMLElement;
-  const scoreB = document.querySelector('#scoreB') as HTMLElement;
+  const scoreContainerA = document.querySelector('#scoreA') as HTMLElement;
+  const scoreContainerB = document.querySelector('#scoreB') as HTMLElement;
   const msgContainer = document.querySelector('#msg') as HTMLElement;
 
-  const question = document.querySelector('#question') as HTMLElement;
-  const answer = document.querySelector('#answer') as HTMLElement;
-  const link = document.querySelector('#link') as HTMLElement;
+  const questionContainer = document.querySelector('#question') as HTMLElement;
+  const answerContainer = document.querySelector('#answer') as HTMLElement;
+  const linkContainer = document.querySelector('#link') as HTMLElement;
 
   const roughlyForm = document.querySelector('#roughly-form') as HTMLFormElement;
   const inputA = document.querySelector('#inputA') as HTMLInputElement;
@@ -67,24 +66,14 @@ window.onload = function () {
 
   startButton.addEventListener('click', (event) => {
     event.preventDefault();
-
     displayNewQuestion();
-
   });
 
   function displayNewQuestion() {
-    qnNumber.textContent = `${quiz.index + 1} / ${quiz.qns.length}`;
-    scoreA.textContent = JSON.stringify(quiz.scoreA);
-    scoreB.textContent = JSON.stringify(quiz.scoreB);
-
-    question.textContent = quiz.qns[quiz.index].question;
-    answer.textContent = JSON.stringify(quiz.qns[quiz.index].correctAnswer);
-    answer.classList.add('hidden');
-    link.textContent = quiz.qns[quiz.index].background;
-    link.classList.add('hidden');
-
+    Render.qnCounter(qnNumber, quiz.index, quiz.qns.length);
+    Render.scores(scoreContainerA, scoreContainerB, quiz.scoreA, quiz.scoreB);
+    Render.questionWhenNewQuestion(questionContainer, answerContainer, linkContainer, quiz.qns, quiz.index);
     Render.formWhenNewQuestion(quiz.starterPlayer, inputA, inputB, startButton, checkButton);
-
   }
 
   function displayWinner() {
@@ -94,76 +83,46 @@ window.onload = function () {
 
   saveBtnA.addEventListener('click', (event) => {
     event.preventDefault();
-
     // validation for Firefox & Safari: can't use non-numeric characters comma for floats
-    if (Validators.isInvalidForNonNumeric(inputA.value)) {
-      Render.messageForNonNumeric(inputA, msgContainer, quiz.msgNumericOnly, quiz.delay);
-      Utils.sleep(quiz.delay).then(() => {
-        // todo: renderFormForNonNumericInInputA()
-        console.log('invalid NonNumeric in inputA');
-      });
+    if (!Validators.isValidForNonNumeric(inputA.value)) {
+      Render.message(msgContainer, quiz.msgNumericOnly);
+      Render.formForNonNumericInInput(inputA, saveBtnA);
+      return;
     }
-
     // validation: can't be equal to the other input value
-    if (Validators.isInvalidForEqualValues([inputA.value, inputB.value], [quiz.starterPlayer, 'playerB'])) {
-      Render.messageForEqualValues(inputA, msgContainer, quiz.msgNoEquals);
+    if (!Validators.isValidForEqualValues([inputA.value, inputB.value], [quiz.starterPlayer, 'playerB'])) {
+      Render.message(msgContainer, quiz.msgNoEquals);
       Render.formForEqualValueInInputA(quiz.starterPlayer, inputA, inputB, checkButton, saveBtnA);
+      return;
     }
-
-    // disable, enable inputs
-    if (quiz.starterPlayer === 'playerA') {
-      inputA.setAttribute('disabled', '');
-      inputB.removeAttribute('disabled');
-    }
-
-    if (quiz.starterPlayer === 'playerB') {
-      inputA.setAttribute('disabled', '');
-      checkButton.removeAttribute('disabled');
-    }
-
-    saveBtnA.setAttribute('disabled', '');
-
+    // render form when inputs are valid
+    Render.formForValidFlowOnSaveBtnA(quiz.starterPlayer, inputA, inputB, checkButton, saveBtnA);
   });
 
   inputA.addEventListener('input', () => {
-    saveBtnA.removeAttribute('disabled');
+    Render.removeDisabledFromSaveBtn(saveBtnA);
   });
 
   saveBtnB.addEventListener('click', (event) => {
     event.preventDefault();
-
     // validation for Firefox & Safari: can't use non-numeric characters comma for floats
-    if (Validators.isInvalidForNonNumeric(inputB.value)) {
-      Render.messageForNonNumeric(inputB, msgContainer, quiz.msgNumericOnly, quiz.delay);
-      Utils.sleep(quiz.delay).then(() => {
-        // todo: renderFormForNonNumericInInputB()
-        console.log('invalid NonNumeric in inputB');
-      });
+    if (!Validators.isValidForNonNumeric(inputB.value)) {
+      Render.message(msgContainer, quiz.msgNumericOnly);
+      Render.formForNonNumericInInput(inputB, saveBtnB);
+      return;
     }
-
     // validation: can't be equal to the other input value
-    if (Validators.isInvalidForEqualValues([inputB.value, inputA.value], [quiz.starterPlayer, 'playerA'])) {
-      Render.messageForEqualValues(inputB, msgContainer, quiz.msgNoEquals);
+    if (!Validators.isValidForEqualValues([inputB.value, inputA.value], [quiz.starterPlayer, 'playerA'])) {
+      Render.message(msgContainer, quiz.msgNoEquals);
       Render.formForEqualValueInInputB(quiz.starterPlayer, inputB, inputA, checkButton, saveBtnB);
+      return;
     }
-
-    // disable, enable inputs
-    if (quiz.starterPlayer === 'playerB') {
-      inputB.setAttribute('disabled', '');
-      inputA.removeAttribute('disabled');
-    }
-
-    if (quiz.starterPlayer === 'playerA') {
-      inputB.setAttribute('disabled', '');
-      checkButton.removeAttribute('disabled');
-    }
-
-    saveBtnB.setAttribute('disabled', '');
-
+    // render form when inputs are valid
+    Render.formForValidFlowOnSaveBtnB(quiz.starterPlayer, inputB, inputA, checkButton, saveBtnB);
   });
 
   inputB.addEventListener('input', () => {
-    saveBtnB.removeAttribute('disabled');
+    Render.removeDisabledFromSaveBtn(saveBtnB);
   });
 
   checkButton.addEventListener('click', (event) => {
@@ -177,18 +136,9 @@ window.onload = function () {
 
     quiz.evaluateAnswers();
 
-    scoreA.textContent = JSON.stringify(quiz.scoreA);
-    scoreB.textContent = JSON.stringify(quiz.scoreB);
-
-    answer.textContent = JSON.stringify(quiz.qns[quiz.index].correctAnswer);
-    answer.classList.remove('hidden');
-
-    inputA.setAttribute('disabled', '');
-    inputB.setAttribute('disabled', '');
-    checkButton.classList.add('hidden');
-    nextButton.classList.remove('hidden');
-
-    link.textContent = quiz.qns[quiz.index].background;
+    Render.scores(scoreContainerA, scoreContainerB, quiz.scoreA, quiz.scoreB);
+    Render.contentBoxWhenCheckingAnswer(answerContainer, linkContainer, quiz.qns[quiz.index]);
+    Render.formWhenCheckingAnswer(inputA, inputB, checkButton, nextButton);
 
   });
 
