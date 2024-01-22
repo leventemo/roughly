@@ -76,7 +76,7 @@ window.onload = function () {
     Render.formWhenNewQuestion(quiz.starterPlayer, inputA, inputB, startButton, checkButton);
   }
 
-  function displayWinner() {
+  function displayWinner(): void {
     const msg: string = quiz.selectWinner();
     console.log(msg);
   }
