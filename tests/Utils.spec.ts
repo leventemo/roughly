@@ -1,7 +1,7 @@
 import { Utils } from '../src/Utils';
 import { describe, test, expect } from 'vitest'
 
-describe('it calculates differences as expected', () => {
+describe('it calculates differences between players\' guesses and correct answer as expected', () => {
   test('when a is greater than b', () => {
     expect(Utils.calcDiff(5, 3)).toBe(2);
   });
@@ -31,7 +31,7 @@ describe('it decides which player\'s guess is closer to the correct answer', () 
   });
 
   test('guessA < correctAnswer < guessB (equal differences): both should get the same score', () => {
-    const guessA = 18, guessB = 15;
+    const guessA = 10, guessB = 14;
     expect(Utils.selectWinner(guessA, guessB, correctAnswer)).toBe('A & B');
   });
 

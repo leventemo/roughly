@@ -33,11 +33,16 @@ export class Utils {
     } else if (correct === guessB) {
       diffB = 0;
     }
-
-    if (diffA > diffB) {
+    if (diffA === 0) {
+      return 'AA';
+    } else if (diffB === 0) {
+      return 'BB';
+    } else if (diffA > diffB) {
       return 'B';
     } else if (diffA < diffB) {
       return 'A';
+    } else if (diffA === diffB) {
+      return 'A & B';
     }
   }
 }
