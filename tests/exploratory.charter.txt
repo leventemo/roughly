@@ -1,3 +1,26 @@
+//////////////////// Unit tests ////////////////////
+
+selectWinner()
+guessA < guessB < correctAnswer: B should win
+
+guessA < correctAnswer << guessB: A should win
+guessA << correctAnswer < guessB: B should win
+guessA < correctAnswer < guessB (equal differences): both should get the same score
+
+guessB < correctAnswer << guessA: B should win
+guessB << correctAnswer < guessA: A should win
+guessB < correctAnswer < guessA (equal differences): both should get the same score
+
+guessB < guessA < correctAnswer: A should win
+
+correctAnswer < guessA < guessB: A should win
+
+correctAnswer < guessB < guessA: B should win
+
+guessA === correctAnswer; guessB is something else: A should get double the diffB
+guessB === correctAnswer; guessA is something else: B should get double the diffA
+
+//////////////////// E2E tests ////////////////////
 check invalid for non-numeric flow
 - on inputA
 - on inputB
