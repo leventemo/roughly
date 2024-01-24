@@ -44,7 +44,7 @@ export class Roughly {
     }
   }
 
-  selectWinner(): string {
+  chooseWinner(): string {
     let winner = '';
     if (this.scoreA === this.scoreB) {
       winner = 'It\'s a draw.';

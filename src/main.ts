@@ -77,7 +77,7 @@ window.onload = function () {
   }
 
   function displayWinner(): void {
-    const msg: string = quiz.selectWinner();
+    const msg: string = quiz.chooseWinner();
     console.log(msg);
   }
 
