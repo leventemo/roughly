@@ -4,19 +4,19 @@ import { Utils } from './Utils'
 
 export class Roughly {
   constructor(
-    public qns: Question[] = roughlyQns,
-    // todo: include the values below as variables on the class
-    public index: number = 0,
-    public scoreA: number = 0,
-    public scoreB: number = 0,
-    public answerA: number = 0,
-    public answerB: number = 0,
-    public starterPlayer: StarterPlayer = 'playerA',
-    public winner = '',
-    public msgNoEquals = 'Idential answers are not allowed. Try a different one.',
-    public msgNumericOnly = 'Only numbers and decimals points are accepted.',
-    public delay: number = 3000
+    public qns: Question[] = roughlyQns
   ) { }
+
+  index = 0;
+  scoreA: number = 0;
+  scoreB: number = 0;
+  answerA: number = 0;
+  answerB: number = 0;
+  starterPlayer: StarterPlayer = 'playerA';
+  winner = '';
+  msgNoEquals = 'Idential answers are not allowed. Try a different one.';
+  msgNumericOnly = 'Only numbers and decimals points are accepted.';
+  delay: number = 3000;
 
   toggleStarterPlayers(): void {
     if (this.starterPlayer === 'playerA') {
