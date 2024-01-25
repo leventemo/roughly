@@ -8,8 +8,8 @@ export class Validators {
   }
 
   // validation: can't be equal to the other input value
-  public static isValidForEqualValues([inputValueA, inpitValueB]: string[], [starterPlayer, assumedPlayer]: string[]): boolean {
-    if (inputValueA === inpitValueB && starterPlayer === assumedPlayer) {
+  public static isValidForEqualValues(inputValueA: string, inputValueB: string): boolean {
+    if (inputValueA === inputValueB) {
       return false;
     }
     return true;

@@ -1,5 +1,5 @@
 import { Utils } from '../src/Utils';
-import { describe, test, expect } from 'vitest'
+import { describe, test, expect } from 'vitest';
 
 describe('it calculates differences between players\' guesses and correct answer as expected', () => {
   test('a > b', () => {

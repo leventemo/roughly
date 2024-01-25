@@ -5,6 +5,7 @@ import { Utils } from './Utils'
 export class Roughly {
   constructor(
     public qns: Question[] = roughlyQns,
+    // todo: include the values below as variables on the class
     public index: number = 0,
     public scoreA: number = 0,
     public scoreB: number = 0,

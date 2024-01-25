@@ -90,7 +90,7 @@ window.onload = function () {
       return;
     }
     // validation: can't be equal to the other input value
-    if (!Validators.isValidForEqualValues([inputA.value, inputB.value], [quiz.starterPlayer, 'playerB'])) {
+    if (!Validators.isValidForEqualValues(inputA.value, inputB.value) && quiz.starterPlayer === 'playerB') {
       Render.message(msgContainer, quiz.msgNoEquals);
       Render.formForEqualValueInInputA(quiz.starterPlayer, inputA, inputB, checkButton);
       return;
@@ -112,7 +112,7 @@ window.onload = function () {
       return;
     }
     // validation: can't be equal to the other input value
-    if (!Validators.isValidForEqualValues([inputB.value, inputA.value], [quiz.starterPlayer, 'playerA'])) {
+    if (!Validators.isValidForEqualValues(inputB.value, inputA.value) && quiz.starterPlayer === 'playerA') {
       Render.message(msgContainer, quiz.msgNoEquals);
       Render.formForEqualValueInInputB(quiz.starterPlayer, inputB, inputA, checkButton);
       return;
