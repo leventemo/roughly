@@ -23,7 +23,7 @@ window.onload = function () {
     <div id="msg" class="invisible"></div>
     <div class="content-box">
       <div>
-         <img src='../assets/questionmark.svg' alt="questionmark icon"  height='20' width='20'/>
+        <img src='../assets/question.svg' alt="questionmark icon"  height='20' width='20'/>
         <span id='question'> question</span>
       </div>
       <div>
@@ -31,7 +31,7 @@ window.onload = function () {
         <span id='answer'> answer</span>
       </div>
       <div>
-        <img src='../assets/book.svg' alt="book icon"  height='20' width='20'/>
+        <img src='../assets/link.svg' alt="link icon"  height='20' width='20'/>
         <span id='link'> background info</span>
       </div>
     </div>
