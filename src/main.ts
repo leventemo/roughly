@@ -38,8 +38,8 @@ window.onload = function () {
     </div>
 
     <form id="roughly-form" action="#">
-      <label for="inputA">guess A <input type="number" id="inputA" name="inputA" disabled required><button id="save-button-A" disabled>Save</button></label>
-      <label for="inputB">guess B <input type="number" id="inputB" name="inputB" disabled required><button id="save-button-B" disabled>Save</button></label>
+      <label for="inputA">A <input type="number" id="inputA" name="inputA" disabled required><button id="save-button-A" disabled>Save</button></label>
+      <label for="inputB">B <input type="number" id="inputB" name="inputB" disabled required><button id="save-button-B" disabled>Save</button></label>
       <button type="button" id="startButton">Start</button>
       <button type="button" id="checkButton" class="hidden">Check</button>
       <button type="button" id="nextButton" class="hidden">Next</button>
