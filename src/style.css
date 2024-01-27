@@ -3,6 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
 
+  --primary-color: blueviolet;
+  --secondary-color: #B50088;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -13,16 +15,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
@@ -31,25 +23,55 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 1.3em;
+#app {
+  margin: 0 auto;
+  text-align: center;
+  height: 95vh;
+  width: 27rem;
+  max-width: 95%;
+  border: 2px solid var(--primary-color);
 }
 
 #header {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
+  height: 5vh;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
+h1 {
+  font-size: 1.3em;
+}
+
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  padding: 0 1.5rem 0 1.5rem;
+  border-top: 2px solid var(--primary-color);
+}
+
+#players-container {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  justify-content: center;
+  font-size: 1.2rem;
+  ;
+}
+
+#msg {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
   text-align: center;
-  border: 2px solid blueviolet;
-}
-
-.card {
-  width: 27rem;
-  margin: 0 auto;
+  justify-content: center;
 }
 
 form,
@@ -57,34 +79,17 @@ form,
   display: flex;
   flex-direction: column;
   text-align: left;
-  justify-content: center;
-  padding: 0 2rem 0 2rem;
-  height: 23vh;
-  border-top: 2px solid blueviolet;
-}
-
-.scoreboard {
-  display: flex;
-  flex-direction: row;
-  text-align: left;
-  justify-content: center;
-  padding: 0 2rem 0 2rem;
-  height: 23vh;
-  border-top: 2px solid blueviolet;
-}
-
-.player {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  padding-top: 1rem;
+  justify-content: space-evenly;
+  padding: 0 1.5rem 0 1.5rem;
+  height: 35vh;
+  border-top: 2px solid var(--primary-color);
 }
 
 form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  height: 30vh;
 }
 
 button {
@@ -100,7 +105,7 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: var(--secondary-color);
 }
 
 button:focus,
@@ -110,11 +115,11 @@ button:focus-visible {
 
 input {
   height: 2.3rem;
-  width: 60%;
+  width: 58%;
 }
 
-#ok-utton-A,
-#ok-utton-B {
+#save-button-A,
+#save-button-B {
   margin-left: .5rem;
 }
 
@@ -133,7 +138,7 @@ input {
   }
 
   a:hover {
-    color: #747bff;
+    color: var(--secondary-color);
   }
 
   button {

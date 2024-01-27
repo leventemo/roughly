@@ -9,28 +9,29 @@ window.onload = function () {
 
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <h1 id="header"><span id="qnNumber">${quiz.index}/${quiz.qns.length}</span>Roughly</h1>
-  <div class="card">
     <div class="scoreboard">
-      <div class="player">
-        <div class="name">A</div>
-        <div id="scoreA">${quiz.scoreA}</div>
+      <div id="players-container">
+        <div class="player">
+          <div class="name">A</div>
+          <div id="scoreA">${quiz.scoreA}</div>
+        </div>
+        <div class="player">
+          <div class="name">B</div>
+          <div id="scoreB">${quiz.scoreB}</div>
+        </div>
       </div>
-      <div class="player">
-        <div class="name">B</div>
-        <div id="scoreB">${quiz.scoreB}</div>
-      </div>
+      <div id="msg" class="invisible"></div>
     </div>
-    <div id="msg" class="invisible"></div>
     <div class="content-box">
-      <div>
+      <div id="question-container">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
         <span id='question'> question</span>
       </div>
-      <div>
+      <div id="answer-container">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
         <span id='answer'> answer</span>
       </div>
-      <div>
+      <div id="link-container">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
         <span id='link'> background info</span>
       </div>
@@ -44,7 +45,6 @@ window.onload = function () {
       <button type="button" id="nextButton" class="hidden">Next</button>
       <button type="button" id="overviewButton" class="hidden">Next</button>
     </form>
-  </div>
 `
   const qnNumber = document.querySelector('#qnNumber') as HTMLElement;
   const scoreContainerA = document.querySelector('#scoreA') as HTMLElement;
