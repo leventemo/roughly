@@ -5,8 +5,7 @@
 TODO:
 - [ ] format numbers in scores for floats: no "0.7000000000000002"
 - [ ] hourglass icon with messages
-- [ ] show winner
-- [ ] show overview of qns, answers, links & scores
-- [ ] export svg-s from main.ts
-- [ ] finalize responsiveness & styling
+- [ ] show recap of qns, answers, links & scores
+- [ ] finalize styling
+- [ ] randomize order of qns
 - [ ] refactor

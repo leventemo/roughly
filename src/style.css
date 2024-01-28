@@ -74,6 +74,11 @@ h1 {
   justify-content: center;
 }
 
+#winnerMsg {
+  font-size: 1.8rem;
+  align-self: center;
+}
+
 form,
 .content-box {
   display: flex;
@@ -115,12 +120,20 @@ button:focus-visible {
 
 input {
   height: 2.3rem;
-  width: 58%;
+  width: 57%;
 }
 
 #save-button-A,
 #save-button-B {
   margin-left: .5rem;
+  width: 34%;
+}
+
+#recap-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30vh;
 }
 
 .hidden {

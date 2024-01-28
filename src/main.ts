@@ -43,7 +43,6 @@ window.onload = function () {
       <button type="button" id="startButton">Start</button>
       <button type="button" id="checkButton" class="hidden">Check</button>
       <button type="button" id="nextButton" class="hidden">Next</button>
-      <button type="button" id="overviewButton" class="hidden">Next</button>
     </form>
 `
   const qnNumber = document.querySelector('#qnNumber') as HTMLElement;
@@ -79,7 +78,37 @@ window.onload = function () {
 
   function displayWinner(): void {
     const msg: string = quiz.chooseWinner();
-    console.log(msg);
+    document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+    <h1 id="header"><span id="qnNumber">${quiz.index}/${quiz.qns.length}</span>Roughly</h1>
+    <div class="scoreboard">
+      <div id="players-container">
+        <div class="player">
+          <div class="name">A</div>
+          <div id="scoreA">${quiz.scoreA}</div>
+        </div>
+        <div class="player">
+          <div class="name">B</div>
+          <div id="scoreB">${quiz.scoreB}</div>
+        </div>
+      </div>
+    </div>
+    <div class="content-box">
+      <div id="winnerMsg">${msg}</div>
+    </div>
+
+    <form id="recap-form" action="#">
+    <button type="button" id="recapButton">Recap</button>
+    </form>`
+
+    const recapButton = document.querySelector('#recapButton') as HTMLButtonElement;
+
+    recapButton.addEventListener('click', () => {
+      displayRecap();
+    });
+  }
+
+  function displayRecap() {
+
   }
 
   saveBtnA.addEventListener('click', (event) => {
