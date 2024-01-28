@@ -19,27 +19,27 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 #app {
   margin: 0 auto;
+  width: 100%;
+  max-width: 414px;
 }
 
 #gameCard {
   text-align: center;
-  height: 95vh;
-  width: 27rem;
-  max-width: 95%;
+  height: 98%;
+  width: 98%;
   border: 2px solid var(--primary-color);
 }
 
 #logCard {
   text-align: center;
-  min-height: 95vh;
-  width: 27rem;
-  max-width: 95%;
+  min-height: 98%;
+  width: 98%;
   border: 2px solid var(--primary-color);
 }
 
@@ -136,8 +136,8 @@ input {
 
 #save-button-A,
 #save-button-B {
-  margin-left: .5rem;
-  width: 34%;
+  margin-left: 1rem;
+  width: 30%;
 }
 
 #log-form {
