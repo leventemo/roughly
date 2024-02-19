@@ -4,7 +4,6 @@ import { Render } from './Render.ts';
 import { Validators } from './Validators.ts';
 
 window.onload = function () {
-
   const quiz = new Roughly();
 
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -409,213 +408,6 @@ window.onload = function () {
             <td>18</td>
             <td>48</td>
             <td>48</td>
-          </tr>          <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>
-                  <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>          <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>
-                  <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>          <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>
-                  <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>          <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>
-                  <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>          <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>
-                  <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>          <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>
-                  <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>          <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>
-                  <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>          <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>
-                  <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>          <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
-          </tr>
-                  <tr>
-            <td colspan="3" class="align-left">Light travels _____ million times faster than rain. (18)</td>
-            <td colspan="1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </td>
-          </tr>
-          <tr>
-            <td>18</td>
-            <td>18</td>
-            <td>48</td>
-            <td>48</td>
           </tr>
         </tbody>
       </table>
@@ -676,16 +468,15 @@ window.onload = function () {
     quiz.answerA = Number(formData.get('inputA'));
     quiz.answerB = Number(formData.get('inputB'));
 
-    quiz.evaluateAnswers();
+    quiz.evaluateAnswers(quiz.index);
 
     Render.scores(scoreContainerA, scoreContainerB, quiz.scoreA, quiz.scoreB);
     Render.contentBoxWhenCheckingAnswer(answerContainer, linkContainer, quiz.qns[quiz.index]);
     Render.formWhenCheckingAnswer(inputA, inputB, checkButton, nextButton);
-
   });
 
   nextButton.addEventListener('click', () => {
-    quiz.index = quiz.index + 1;
+    quiz.index++;
 
     // check if there's a new qn:
     if (quiz.qns.length === quiz.index) {
@@ -702,7 +493,6 @@ window.onload = function () {
       quiz.toggleStarterPlayers();
       displayNewQuestion();
     }
-
   });
 
 }

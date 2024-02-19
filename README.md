@@ -8,4 +8,27 @@ TODO:
 - [ ] show recap of qns, answers, links & scores
 - [ ] finalize styling
 - [ ] randomize order of qns
-- [ ] refactor
+- [ ] sanitize
+
+refactor with Quiz class + Game class
+* Roughly class
+  + qns – DONE
+  + messages for invalid anwers – DONE
+  + messages on screen (see "Roughly.delay") – DONE
+  + evaluateAnswers() – DONE
+* global in main.ts
+  + index - done
+* Game class
+  + scoresA – DONE
+  + scoresB – DONE
+  + answerA – DONE
+  + answerB – DONE
+  + starterPlayer – DONE
+  + winner – DONE
+  + toggleStarterPlayers() – DONE
+  + currentRound – ???
+  + get currentRound() – ???
+  + chooseWinner() – DONE
+  + gameLog
+
+call both classes in main or Roughly only?
